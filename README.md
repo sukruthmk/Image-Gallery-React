@@ -1,6 +1,14 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Simple app to display image gallery with pagination
+
+Added these features
+- Pagination
+- Full image preview on onclick
+- Add image to favorites
+- Display only favorite images
 
 ![](image-gallery.gif)
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
