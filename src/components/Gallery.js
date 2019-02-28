@@ -12,7 +12,8 @@ class Gallery extends Component {
       images: [],
       currentImages: [],
       currentPage: null,
-      totalPages: null
+      totalPages: null,
+      filterLiked: false
     };
   }
 
@@ -33,8 +34,13 @@ class Gallery extends Component {
     this.setState({ currentPage, currentImages, totalPages });
   }
 
+  handleFilterLiked = () => {
+      console.log(this.state.filterLiked);
+      this.setState({ filterLiked: !this.state.filterLiked });
+  }
+
   render() {
-        const { images, currentImages, currentPage, totalPages } = this.state;
+        const { images, currentImages, currentPage, totalPages, filterLiked } = this.state;
         const totalImages = images.length;
 
         if (totalImages === 0) return null;
@@ -43,9 +49,9 @@ class Gallery extends Component {
 
         return (
             <div className="container mb-5">
-                <div className="row d-flex flex-row py-5">
+                <div className="row d-flex flex-row">
 
-                 <div className="w-100 px-4 py-5 d-flex flex-row flex-wrap align-items-center justify-content-between">
+                 <div className="w-100 px-4 d-flex flex-row flex-wrap align-items-center justify-content-between">
                    <div className="d-flex flex-row align-items-center">
 
                      <h2 className={headerClass}>
@@ -63,9 +69,18 @@ class Gallery extends Component {
                    <div className="d-flex flex-row py-4 align-items-center">
                      <Pagination totalRecords={totalImages} pageLimit={30} pageNeighbours={1} onPageChanged={this.onPageChanged} />
                    </div>
+
+                   <div className="d-flex flex-row py-4 align-items-center">
+                    <button type="button" className="btn btn-outline-primary" onClick={this.handleFilterLiked}>
+                        Show only liked &nbsp;
+                        <i className={(filterLiked ? 'fas' : 'far') + " fa-heart"} ></i>
+                    </button>
+                   </div>
                  </div>
                  {this.state.images === null && <p>Loading Images...</p>}
-                 {currentImages && currentImages.map(imageData => <ImageThumbnail key={imageData.id} imageData={imageData} />) }
+                 {currentImages && currentImages.map(imageData =>
+                     <ImageThumbnail key={imageData.id} imageData={imageData} filterLiked={filterLiked} />
+                 ) }
 
                 </div>
             </div>

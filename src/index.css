@@ -13,3 +13,39 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.dialog {
+    position: fixed;
+    z-index: 10000000;
+    top: 10%;
+}
+
+.dialog .image {
+    height: 450px;
+    width: 450px;
+}
+
+.thumbnail-card-container .image {
+    height: 100%;
+    width: 100%;
+}
+
+.thumbnail-card-container .card-body {
+    padding: 0;
+}
+
+.marginTop10 {
+    margin-top: 10px;
+}
+
+.marginTop24 {
+    margin-top: 24px;
+}
+
+.marginAuto {
+    margin: auto;
+}
+
+.textAlignRight {
+    text-align: right;
+}
