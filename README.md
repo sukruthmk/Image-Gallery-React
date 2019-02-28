@@ -6,6 +6,8 @@ Added these features
 - Add image to favorites
 - Display only favorite images
 
+Demo Link : https://image-gallery-react.netlify.com
+
 ![](image-gallery.gif)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
